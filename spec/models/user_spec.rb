@@ -26,4 +26,19 @@ describe User do
     it { should_not be_valid }
   end
 
+  #describe "when provider is not github" do
+  #  pending
+  #  before { @user.provider = "twitter" }
+  #  it { should_not be_valid }
+  #end
+
+  describe "when name is already taken" do
+    before do
+      user_with_same_email = @user.dup
+      user_with_same_email.save
+    end
+
+    it { should_not be_valid }
+  end
+
 end
