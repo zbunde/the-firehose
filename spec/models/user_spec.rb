@@ -9,6 +9,7 @@ describe User do
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:provider) }
+  it { should respond_to(:authorizations) }
   it { should be_valid }
 
   describe "when name is not present" do
