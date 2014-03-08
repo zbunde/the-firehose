@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.3'
 gem 'omniauth'
 gem 'omniauth-github'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -31,6 +32,10 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
 end
 
 # Use ActiveModel has_secure_password
