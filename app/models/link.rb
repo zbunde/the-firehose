@@ -1,6 +1,9 @@
 class Link < ActiveRecord::Base
   acts_as_taggable_on :tags
   belongs_to :user
+  validates :title, presence: true, uniqueness: true
+  validates :url, presence: true, uniqueness: true
+  validates :description, presence: true, uniqueness: true
 
   def printable_url
     if self.url.include?("http://")

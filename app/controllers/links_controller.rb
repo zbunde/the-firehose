@@ -5,9 +5,9 @@ class LinksController < ApplicationController
   # GET /links.json
   def index
     if params[:id].present?
-      @links = Link.tagged_with(params[:id])
+      @links = Link.tagged_with(params[:id]).reverse
     else
-      @links = Link.all
+      @links = Link.all.reverse
     end
   end
 
@@ -33,7 +33,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
+        format.html { redirect_to links_url, notice: 'Link was successfully created.' }
         format.json { render action: 'show', status: :created, location: @link }
       else
         format.html { render action: 'new' }
@@ -74,6 +74,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:url, :description, :tag_list)
+      params.require(:link).permit(:url, :description, :tag_list, :title)
     end
 end

@@ -1,6 +1,6 @@
-<%= form_for(@link) do |f| %>
+<%= form_for(@link, :html => { :class => "form-horizontal", role: "form" } ) do |f| %>
   <% if @link.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert-danger">
       <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
 
       <ul>
@@ -11,20 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
+  <div class="form-group">
+    <%= f.text_field :title, class: "form-control", placeholder: "Title of Link" %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+  <div class="form-group">
+    <%= f.text_field :url, class: "form-control", placeholder: "Link URL (http://google.com)" %>
   </div>
-  <div class="field">
-    <%= f.label :Tags %><br>
-    <%= f.text_field :tag_list %>
+  <div class="form-group">
+    <%= f.text_field :description, class: "form-control", placeholder: "Brief Description of Link" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :tag_list, class: "form-control", placeholder: "Tags (separate by comma)" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit Link", class: "btn btn-primary" %>
   </div>
 <% end %>

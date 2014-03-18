@@ -12,15 +12,7 @@
  *= require_tree .
  */
 
-.tag_list {
-    float: right;
 
-}
-.tag_list li {
-    float: left;
-    margin-right: 10px;
-    list-style-type: none;
-}
 @import url("//fonts.googleapis.com/css?family=News+Cycle:400,700");/*!
  * Bootswatch v3.1.1
  * Homepage: http://bootswatch.com

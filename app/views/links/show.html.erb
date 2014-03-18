@@ -1,19 +1,26 @@
+<div class="row">
+<div class="col-md-3">
+
+</div>
+<div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><a href="<%= @link.printable_url %>" target="blank"><%= @link.title %></a></h3>
+    </div>
+    <div class="panel-body">
+      <%= @link.description %>
+    </div>
+  </div>
+</div>
+<div class="col-md-3">
+
+</div>
+
+
+
+</div>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @link.url %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @link.user_id %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @link.description %>
-</p>
 
 <%= link_to 'Edit', edit_link_path(@link) %> |
 <%= link_to 'Back', links_path %>
