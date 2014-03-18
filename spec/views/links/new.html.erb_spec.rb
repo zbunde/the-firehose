@@ -14,7 +14,6 @@ describe "links/new" do
 
     assert_select "form[action=?][method=?]", links_path, "post" do
       assert_select "input#link_url[name=?]", "link[url]"
-      assert_select "input#link_user_id[name=?]", "link[user_id]"
       assert_select "input#link_description[name=?]", "link[description]"
     end
   end

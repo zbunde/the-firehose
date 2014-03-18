@@ -23,3 +23,4 @@ describe "links/index" do
     assert_select "tr>td", :text => "Description".to_s, :count => 2
   end
 end
+
