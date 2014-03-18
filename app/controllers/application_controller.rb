@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   def current_user
     current_user = User.find(session[:user_id]) if session[:user_id].present?
   end
+
+  def tag_cloud
+    @tags = Post.tag_counts_on(:tags)
+  end
 end
