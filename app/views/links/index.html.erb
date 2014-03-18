@@ -5,9 +5,8 @@
       <% @links.each do |link| %>
         <div class="panel panel-default">
           <div class="panel-heading link-heading">
-            <a href="<%= link.printable_url %>" class="panel-title col-md-8" target="_blank"><%= link.title %></a>
-            <div class="tag_list col-md-4">
-              <p>Tagged as:</p>
+            <a href="<%= link.printable_url %>" class="panel-title col-md-7" target="_blank"><%= link.title %></a>
+            <div class="tag_list col-md-5">
               <% link.tag_list_on(:tags).each do |tag| %>
                 <a href="/links/tagged/<%= tag %>"><%= tag %></a>
               <% end %>
