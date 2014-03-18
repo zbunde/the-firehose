@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: thefirehose_development
+  database: firehose_dev
   pool: 5
   username: Andrew
   password:
@@ -46,7 +46,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: thefirehose_test
+  database: firehose_testdb
   pool: 5
   username: Andrew
   password:
@@ -54,7 +54,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: thefirehose_production
+  database: thefirehose_prod
   pool: 5
   username: Andrew
   password:

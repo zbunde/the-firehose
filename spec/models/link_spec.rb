@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Link do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before { @link = Link.create url: "google.com", user_id: 1, tag}
 end
