@@ -2,8 +2,10 @@
   overflow: hidden;
   height: 40px;
 }
+
 .tag_list {
   float: right;
+  text-align: right;
   p {
     float: left;
     margin-right: 15px;
@@ -17,12 +19,15 @@
     }
   }
 }
+
 .text-align-center {
   text-align: center
 }
+
 .form-horizontal {
   text-align: center;
 }
+
 #error_explanation {
   padding: 10px;
   margin-bottom: 10px;
