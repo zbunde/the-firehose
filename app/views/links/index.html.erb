@@ -1,31 +1,26 @@
-<h1>Listing links</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Url</th>
-      <th>User</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
     <% @links.each do |link| %>
-      <tr>
-        <td><%= link.url %></td>
-        <td><%= link.user_id %></td>
-        <td><%= link.description %></td>
-        <td><%= link_to 'Show', link %></td>
-        <td><%= link_to 'Edit', edit_link_path(link) %></td>
-        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <a href="<%= link.printable_url %>" class="panel-title" target="_blank"><%= link.url %></a>
+          <ul class="tag_list">
+            <li>Tagged as:</li>
+            <% link.tag_list_on(:tags).each do |tag| %>
+              <a href="links/tagged/<%= tag %>"><%= tag %></a>
+            <% end %>
+          </ul>
+        </div>
+        <div class="panel-body">
+          <p class="list-group-item-text"><%= link.description %></p>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <div class="col-md-2"></div>
+</div>
 
-<br>
+
 
 <%= link_to 'New Link', new_link_path %>
