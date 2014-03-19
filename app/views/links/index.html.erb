@@ -16,7 +16,7 @@
             <p class="list-group-item-text col-md-8"><%= link.description %></p>
             <div class="link_meta col-md-4">
 
-              <p class="posted_by">Posted by <%= link.user.name %> <img src="<%= link.user.gravatar %>" class="avatar" alt="<%= link.user.name %>"</p>
+              <p class="posted_by">Posted by <%= link_to link.user.name , "/links/user/#{link.user.id}" %> <img src="<%= link.user.gravatar %>" class="avatar" alt="<%= link.user.name %>"</p>
             </div>
           </div>
         </div>

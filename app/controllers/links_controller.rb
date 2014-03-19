@@ -5,7 +5,11 @@ class LinksController < ApplicationController
   # GET /links.json
   def index
     if params[:id].present?
-      @links = Link.tagged_with(params[:id]).reverse
+      if params[:id].to_i != 0
+        @links = Link.where(user_id: params[:id]).reverse
+      else
+        @links = Link.tagged_with(params[:id]).reverse
+      end
     else
       @links = Link.all.reverse
     end
