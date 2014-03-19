@@ -5,9 +5,12 @@ class Link < ActiveRecord::Base
   validates :url, presence: true, uniqueness: true
   validates :description, presence: true
 
+
   def printable_url
-    if self.url.include?("http://")
-      return self.url
+    if /(https:\/\/)/.match(self.url) != nil
+      self.url
+    elsif /(http:\/\/)/.match(self.url) != nil
+      self.url
     else
       "http://#{self.url}"
     end
