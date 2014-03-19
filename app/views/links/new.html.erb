@@ -8,6 +8,12 @@
     <div class="well well-lg">
       <h1 class="text-align-center">Add New link</h1>
       <%= render 'form' %>
+      <div id="tag_cloud">
+        <p>Popular tags:</p>
+        <% tag_cloud Link.tag_counts, %w{s m l} do |tag, css_class| %>
+          <%= link_to tag.name, "/links/tagged/#{tag.name}", class: css_class %>
+        <% end %>
+      </div>
      </div>
   </div>
 
