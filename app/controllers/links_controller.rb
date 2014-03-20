@@ -84,7 +84,7 @@ class LinksController < ApplicationController
     end
 
   def check_login
-    if !session[:id]
+    if !session[:user_id]
       redirect_to root_url
     end
   end
