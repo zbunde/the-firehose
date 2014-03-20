@@ -1,6 +1,8 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_login
+  
+  
   # GET /links
   # GET /links.json
   def index
@@ -80,4 +82,10 @@ class LinksController < ApplicationController
     def link_params
       params.require(:link).permit(:url, :description, :tag_list, :title)
     end
+
+  def check_login
+    if !session[:id]
+      redirect_to root_url
+    end
+  end
 end
