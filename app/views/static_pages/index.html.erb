@@ -1,3 +1,7 @@
-<%= link_to "Login with Github", "/auth/github/" %>
-<%= link_to "Logout", '/logout/' %>
+<div class="jumbotron">
+  <h1>The Firehose</h1>
+  <p>A place for gSchool students to share links to useful information</p>
+  <p><%= link_to "Login with Github", "/auth/github/", class: "btn btn-primary", role: "button" %>
+  </p>
+</div>
 <%= current_user.name if current_user %>
