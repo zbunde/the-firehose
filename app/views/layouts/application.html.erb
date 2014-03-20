@@ -54,7 +54,7 @@
                 <a href="#" class="dropdown-toggle user_drop" data-toggle="dropdown"><img src="<%= current_user.gravatar %>" class="avatar" alt="<%= current_user.name %>"/><%= current_user.name %>
                   <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/links/user/<%= current_user.id %>">My Links</a></li>
+                  <li><a href="/links?user=<%= current_user.id %>">My Links</a></li>
                   <li class="divider"></li>
                   <li><a href="/logout">Logout</a></li>
                 </ul>
