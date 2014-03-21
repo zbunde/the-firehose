@@ -14,14 +14,14 @@ class SessionsController < ApplicationController
 
       # Create the session
       session[:user_id] = auth.user.id
-      redirect_to root_path
+      redirect_to root_url, notice: "Welcome #{User.find(session[:user_id]).name}!"
       #render :text => auth_hash
     end
   end
 
   def destroy
     session[:user_id] = nil
-    render :text => "You've logged out!"
+    redirect_to root_url, notice: "You've Logged Out!"
   end
 
   def failure
