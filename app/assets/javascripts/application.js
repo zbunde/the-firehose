@@ -13,4 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.turbolinks
 //= require_tree .
+
+
+  $(document).ready(function () {
+
+    $("#new_link input").change(function () {
+      var completedInputs = 0;
+      $("#new_link input.form-control").each(function () {
+        if($(this).val() !== "") {
+          console.log($(this).val());
+          completedInputs++;
+        }
+      });
+      $(".progress-bar").css("width", (completedInputs*25)+"%");
+      if (completedInputs === 4) {
+        $(".progress-bar").addClass('progress-bar-success');
+        $(".progress-bar").removeClass('progress-bar-info');
+      }
+    })
+  });

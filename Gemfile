@@ -6,7 +6,7 @@ gem 'rails', '4.0.3'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'acts-as-taggable-on'
-
+gem 'jquery-turbolinks'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
