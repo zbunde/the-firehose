@@ -11,7 +11,7 @@
       <div id="tag_cloud">
         <p>Popular tags:</p>
         <% tag_cloud Link.tag_counts, %w{s m l} do |tag, css_class| %>
-          <%= link_to tag.name, "/links/tagged/#{tag.name}", class: css_class %>
+          <%= link_to tag.name, "/links?=tag#{tag.name}", class: css_class %>
         <% end %>
       </div>
      </div>
