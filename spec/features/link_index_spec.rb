@@ -1,13 +1,23 @@
 require 'spec_helper'
 
-describe "links/tagged/meta" do
-  subject { page }
-  before { @user = User.new(name: "User", email: "user@example.com", provider: "github") }
-  before { @link = Link.create url: "google.com", user_id: 1, tag_list: "search, meta" }
-  before { visit "/links/tagged/meta" }
+describe "links?tag=meta" do
 
+  it "should display a link after creating it" do
+    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+                                                                   :provider => 'github',
+                                                                   :uid => '123545'
+                                                                   # etc.
+                                                                 })
 
-  it "should display the link based on its tag" do
-    expect(page).to have_content("google.com")
+    login
+    @user = User.create!(name: "User", email: "user@example.com", provider: "github")
+    @authorization = Authorization.create!(uid: "123545", user: @user, provider: "github")
+    @link = Link.create! url: "google.com", tag_list: "meta", user_id: @user.id, title: "I'm a link", description: "This is a description"
+    visit "/"
+    click_on "Login with Github"
+    save_and_open_page
+    visit "/links?tag=meta"
+    expect(page).to have_content("I'm a link")
+    expect(page).to have_content("This is a description")
   end
 end
