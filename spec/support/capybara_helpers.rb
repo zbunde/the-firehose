@@ -2,6 +2,10 @@ module CapybaraHelpers
 
 
   def login
-    puts "yay"
+    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+                                                                  :provider => 'github',
+                                                                  :uid => '123545'
+                                                                  # etc.
+                                                                })
   end
 end
