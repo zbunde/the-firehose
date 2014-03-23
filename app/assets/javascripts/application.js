@@ -33,4 +33,6 @@
         $(".progress-bar").removeClass('progress-bar-info');
       }
     })
+
+    $('.tip').tooltip()
   });

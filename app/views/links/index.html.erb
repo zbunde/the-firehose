@@ -14,21 +14,23 @@
 
           </div>
           <div class="panel-body">
-            <p class="list-group-item-text col-md-8"><%= link.description %></p>
-            <div class="link_meta col-md-4">
-              <p class="posted_by">Posted by <%= link_to link.user.name , "/links?user=#{link.user.id}" %> <img src="<%= link.user.gravatar %>" class="avatar" alt="<%= link.user.name %>"</p>
-
-
-              <form action="/readings" method="post">
+            <p class="list-group-item-text col-md-10"><%= link.description %></p>
+            <div class="link_meta col-md-2">
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-sm link_user_info tip" data-original-title="Posted by <%= link.user.name %>">
+                  <span class="glyphicon glyphicon-user tip"></span>
+                </button>
+                <button type="button submit" form="add_reading" class="btn btn-info btn-sm add_reading tip" data-original-title="Add link to reading list">
+                  <span class="glyphicon glyphicon-share"></span>
+                </button>
+              </div>
+              <form action="/readings" method="post" id="add_reading">
                 <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-                <input type="submit" value="" class="add_button">
                 <input type="hidden" name="title" value="<%= link.title %>">
                 <input type="hidden" name="description" value="<%= link.description %>">
                 <input type="hidden" name="url" value="<%= link.printable_url%>">
                 <input type="hidden" name="user_id" value="<%= current_user.id %>">
               </form>
-
-
 
             </div>
           </div>
