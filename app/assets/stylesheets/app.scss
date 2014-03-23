@@ -71,3 +71,14 @@
   .m { font-size: 1.2em; }
   .l { font-size: 1.8em; }
 }
+
+.add_button {
+  background: url(add_arrow.png) no-repeat;
+  width: 16px;
+  height: 16px;
+  border: none;
+  outline: none;
+  display: block;
+  clear: right;
+  float: right;
+}
