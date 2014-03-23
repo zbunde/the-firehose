@@ -8,6 +8,7 @@ class LinksController < ApplicationController
   def index
     if params[:user].present?
       @links = Link.where(user_id: params[:user]).reverse
+      @user = User.find(@links.first.user.id)
     elsif params[:tag].present?
       @links = Link.tagged_with(params[:tag]).reverse
     else
