@@ -77,3 +77,11 @@
   clear: right;
   margin-bottom: 5px;
 }
+.tooltip {
+  width: 200px !important;
+  .tooltip-inner {
+    background: #fff;
+    border: 1px solid #333;
+    color: #222
+  }
+}
