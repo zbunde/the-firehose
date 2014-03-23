@@ -20,11 +20,11 @@
                 <button type="button" class="btn btn-primary btn-sm link_user_info tip" data-original-title="Posted by <%= link.user.name %>">
                   <span class="glyphicon glyphicon-user tip"></span>
                 </button>
-                <button type="button submit" form="add_reading" class="btn btn-info btn-sm add_reading tip" data-original-title="Add link to reading list">
+                <button type="button submit" form="add_reading<%= link.id %>" class="btn btn-info btn-sm add_reading tip" data-original-title="Add link to reading list">
                   <span class="glyphicon glyphicon-share"></span>
                 </button>
               </div>
-              <form action="/readings" method="post" id="add_reading">
+              <form action="/readings" method="post" id="add_reading<%= link.id %>">
                 <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
                 <input type="hidden" name="title" value="<%= link.title %>">
                 <input type="hidden" name="description" value="<%= link.description %>">
