@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :authorizations
   has_many :links
+  has_many :readings
 
   validates :email, :provider, presence: true
   validates :name, presence: true, uniqueness: true
